@@ -1,46 +1,77 @@
-#container {
-  width: 100%;
-  height: 2000px;
+body {
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  width: 100%;
+  height: 100%;
   font-family: sans-serif;
+}
+
+#container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.choice {
+  overflow: hidden;
+  flex: 1 1 auto;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  justify-content: center;
+  transition: background-color 0.5s;
 }
 
-#sliding-containers {
-  padding: 1em;
-  padding-bottom: 0.6em;
-  line-height: 1.8em;
-  display: inline-block;
-  text-align: left;
-  transition: transform 0.6s ease-out, box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+.choice > p {
+  display: none;
 }
 
-#title {
-  background: white;
-  z-index: 50;
-  color: #222;
-  font-weight: lighter;
-  text-align: center;
-  font-size: 3em;
-  padding: 0.5em;
-  margin-bottom: 0.5em;
-  /* Shadows from https://github.com/Polymer/paper-shadow/blob/master/paper-shadow.css */
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
-  transform: translateX(0px) translateY(0px);
+.unfinished > .choice:hover {
+  width: 4rem;
 }
 
-.raised {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
-}
-.off-screen {
-  transform: translateX(0px) translateY(-1000px);
-}
-
-.sliding {
+.unfinished > .choice:hover > p {
   display: block;
+}
+
+#poem {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+.unfinished > #poem {
+  display: none;
+}
+
+.poem-text {
   text-align: left;
-  padding-bottom: 0.4em;
-  transition: transform 0.5s ease-out, box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 auto;
+  line-height: 1.2em;
+}
+
+#reconsider {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.5s;
+  bottom: 1em;
+  left: 1em;
+  z-index: 50;
+}
+
+#reconsider:hover {
+  opacity: 1;
 }
